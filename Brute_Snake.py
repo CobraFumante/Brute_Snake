@@ -26,7 +26,7 @@ class welcome():
         self.choose = input('Qual módulo deseja escolher? - Why module do you want?\n'
                             '[1]pdf_snake\n')
         while self.choose not in self.available:
-            self.choose = input('Qual módulo deseja escolher? - Why module do you want?\n'
+            self.choose = input('Qual módulo deseja escolher? - Which module do you want?\n'
                             '[1]pdf_snake\n')
     def run(self):
         if self.choose == '1':
