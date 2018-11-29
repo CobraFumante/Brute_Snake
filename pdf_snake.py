@@ -83,4 +83,3 @@ class Pdf_snake():
             print('Parabéns, A cobra Fumou - Congratulations, The Snake haved a green day {:')
         else:
             print('Senha não encontrada - Password Didnt Find')
-        sys.
