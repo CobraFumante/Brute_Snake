@@ -1,10 +1,11 @@
+import PyPDF2
+import os
+
+
 class Pdf_snake():
     def __init__(self):
-        import PyPDF2
-        import os
         self.BruteForceCaracteresList = []
         self.BruteForceCreatedList = []
-        self.osmodule = os
         self.nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
         self.alphalower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
                            't', 'u', 'v', 'w', 'x', 'y', 'z', ]
@@ -19,9 +20,8 @@ class Pdf_snake():
         self.finded = False
 
     def GetLocate(self):
-        import PyPDF2
         self.locate = input('Digite o local onde o arquivo pdf se encontra - Insert the path where the pdf file is  ')
-        while self.osmodule.path.exists(self.locate) is not True or self.locate[-4:] != '.pdf':
+        while os.path.exists(self.locate) is not True or self.locate[-4:] != '.pdf':
             print('Diretório Invalido, Digite novamente - invalid directory, insert it again')
             self.locate = input('Digite o local onde o arquivo pdf se encontra - Insert the path where the pdf file is  ')
         self.pdffilereader = PyPDF2.PdfFileReader(self.locate)
@@ -41,7 +41,7 @@ class Pdf_snake():
                                         '[3]alphaupper'))
         else:
             self.BruteForceListLocate = input('Onde está a lista de brute force? - wheres the brute force list? ')
-            while self.osmodule.path.exists(self.BruteForceListLocate) is not True or self.BruteForceListLocate[-4:] != '.txt':
+            while os.path.exists(self.BruteForceListLocate) is not True or self.BruteForceListLocate[-4:] != '.txt':
                 print('Diretório Invalido, Digite novamente - invalid directory, insert it again')
                 self.BruteForceListLocate = input('Onde está a lista de brute force? - wheres the brute force list? ')
 
@@ -71,7 +71,6 @@ class Pdf_snake():
             print(self.BruteForceCreatedList)
 
     def DoIt(self):
-        import sys
         for i in self.BruteForceCreatedList:
             if self.pdffilereader.decrypt(i) == 1:
                 print(f'[+]Senha Encontrada : {i}')
